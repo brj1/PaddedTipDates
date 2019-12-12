@@ -1,14 +1,15 @@
 #PaddedTipDates
 
-BEAST2 package that contains operators that having padding to avoid creating negative branches and can change ancetral node dates if need.
+BEAST2 package that contains operators that having padding to avoid creating negative branches and can change ancestral node dates if needed.
 
 ##Installation
 
-1. your BEAST2 library folder given below based on your operating system.
+1. Download the GitHub repository.
 
-MACOS: ~/Library/Application Support/BEAST/2.5
+2. Unzip dist/PaddedTipDates.addon.zip into your BEAST2 library folder given below based on your operating system.
 
-2. Unzip dist/PaddedTipDates.addon.zip into.
+  * MACOS: ~/Library/Application Support/BEAST/2.5
+  * Linux: ~/.beast/2.5
 
 3. Run BEAUTi2.
 

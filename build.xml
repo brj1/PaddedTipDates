@@ -1,9 +1,6 @@
 <!-- from https://gist.github.com/tgvaughan/9826563 -->
 <project name="PaddedTipDates" default="build" basedir=".">
 
-    <!-- Enable debugging -->
-    <property name="debug" value="false"/>
-    
     <!-- Source, JUnit test code and jar library locations. -->
     <property name="src" location="src"/>
     <property name="test" location="test"/>
@@ -11,7 +8,6 @@
 
     <!-- Location to check for local copy of beast2 repository -->
     <property name="beastDir" location="../beast2"/>
-    <property name="bdskyDir" location="../bdsky"/>
 
     <!-- BEAST 2 currently uses Java 1.8 -->
     <property name="sourceVersion" value="1.8"/>
@@ -65,7 +61,6 @@
 
     <target name="find-beast" depends="init">
         <available file="${beastDir}" property="localBeastAvailable"/>
-        <available file="${bdskyDir}" property="localBdskyAvailable"/>
     </target>
 
     <target name="build-remote-beast" depends="find-beast" unless="localBeastAvailable">
@@ -116,34 +111,11 @@
         <delete dir="${build-beast}" />
     </target>
     
-    <target name="build-local-bdsky" depends="find-beast" if="localBdskyAvailable">
-        <echo>Compiling against beast2 source found at ${bdskyDir}.</echo>
-
-        <property name="build-bdsky" location="build-bbdsky"/>
-        <mkdir dir="${build-bdsky}"/>
-
-        <javac target="${targetVersion}" source="${sourceVersion}"
-            srcdir="${bdskyDir}/src"
-            destdir="${build-bdsky}" includeantruntime="false">
-            <classpath>
-                <pathelement path="${classpath}"/>
-                <fileset dir="${bdskyDir}/lib" includes="*.jar"/>
-                <fileset dir="${build-lib}" includes="*.jar"/>
-            </classpath>
-        </javac>
-        <jar jarfile="${build-lib}/BDSSM.jar" basedir="${build-bdsky}" />
-        <copy todir="${build-lib}">
-            <fileset dir="${bdskyDir}/lib" includes="*.jar"/>
-        </copy>
-
-        <delete dir="${build-bdsky}" />
-    </target>
-    
-    <target name="build-beast" depends="build-local-beast,build-remote-beast,build-local-bdsky"/>
+    <target name="build-beast" depends="build-local-beast,build-remote-beast"/>
 
     <!-- Compile -->
     <target name="compile" depends="build-beast">
-        <javac target="${targetVersion}" source="${sourceVersion}" srcdir="${src}" debug="${debug}" destdir="${build}" includeantruntime="false">
+        <javac target="${targetVersion}" source="${sourceVersion}" srcdir="${src}" debug="true" destdir="${build}" includeantruntime="false">
             <classpath>
                 <pathelement path="${classpath}"/>
                 <fileset dir="${build-lib}" includes="*.jar"/>
@@ -291,8 +263,8 @@
 
         <input addproperty="projName" defaultvalue="${defaultProjName}">Enter package name</input>
         <input addproperty="license" defaultvalue="gpl3" validargs="gpl3,lgpl3,lgpl2.1,apache2">Select open source software license</input>
-        <input addproperty="projVersion" defaultvalue="1.0.1">Enter package version</input>
-        <input addproperty="beastVersionReq" defaultvalue="2.5.0">Enter minimum required BEAST 2 version</input>
+        <input addproperty="projVersion" defaultvalue="1.0.0">Enter package version</input>
+        <input addproperty="beastVersionReq" defaultvalue="2.4.0">Enter minimum required BEAST 2 version</input>
 
         <echo>Assembling files and directory structure...</echo>
 
