@@ -1,8 +1,8 @@
-#PaddedTipDates
+# PaddedTipDates
 
 BEAST2 package that contains operators that having padding to avoid creating negative branches and can change ancestral node dates if needed.
 
-##Installation
+## Installation
 
 1. Download the GitHub repository.
 
@@ -15,7 +15,7 @@ BEAST2 package that contains operators that having padding to avoid creating neg
 
 4. Close BEAUTi2.
 
-##Usage
+## Usage
 
 To use the padded or recursive tip date operators in the this package first create a BEAST2 XML file with Tip Date sampling.
 
