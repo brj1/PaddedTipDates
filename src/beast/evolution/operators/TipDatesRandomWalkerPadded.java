@@ -38,7 +38,7 @@ public class TipDatesRandomWalkerPadded extends TipDatesRandomWalker {
     
     @Override
     public void initAndValidate() {
-        super.reflectValue = false;
+//        super.reflectValue = false;
         
         super.initAndValidate();
         
