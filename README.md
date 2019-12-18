@@ -6,10 +6,10 @@ BEAST2 package that contains operators that having padding to avoid creating neg
 
 1. Download the GitHub repository.
 
-2. Unzip dist/PaddedTipDates.addon.zip into your BEAST2 library folder given below based on your operating system.
+2. Unzip dist/PaddedTipDates.addon.zip into your BEAST2 library folder given below based on your operating system / version of BEAST2.
 
-  * MACOS: ~/Library/Application Support/BEAST/2.5
-  * Linux: ~/.beast/2.5
+  * MACOS: ~/Library/Application Support/BEAST/2.X
+  * Linux: ~/.beast/2.X
 
 3. Run BEAUTi2.
 
